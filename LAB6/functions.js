@@ -1,5 +1,39 @@
 document.getElementById("enviar").onclick = checarPass;
 document.getElementById("enviarFecha").onclick = calcularEdad;
+document.getElementById("preguntas").onmouseover = cambiarLetra;
+document.getElementById("preguntas").onmouseout = cambiarLetraInicial;
+document.getElementById("enviar").onmouseover = informacionBasica;
+document.getElementById("enviar").onmouseout = ocultarInfo;
+
+var myVar = setInterval(setColor, 300);
+var myanuncio = setTimeout(Anuncio,3000);
+
+
+function Anuncio(){ alert("Bienvenido a la Tiendita de la Esquina!!!!");
+            
+            }
+
+function setColor() {
+  var x = document.getElementById("tienditaEsquina");
+  x.style.backgroundColor = x.style.backgroundColor == "yellow" ? "pink" : "yellow";
+}
+
+function informacionBasica(){
+    document.getElementById("enviarInfo").style.visibility="visible";
+    
+    document.getElementById("enviarInfo").innerHTML="recuerda que tiene que tener mayusculas, numeros y caracteres especiales para mayor seguridad"
+}
+function ocultarInfo(){
+    document.getElementById("enviarInfo").style.visibility="hidden";
+}
+
+function cambiarLetra(){
+    document.getElementById("preguntas").style.fontStyle="italic";
+}
+function cambiarLetraInicial(){
+    document.getElementById("preguntas").style.fontStyle="normal";
+}
+
 
 
 function correct(){

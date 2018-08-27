@@ -1,0 +1,27 @@
+div.a{
+  text-align: center;
+}
+
+#cocaImg{
+    float:left;    
+}
+#chipsImg{
+    float: right;
+}
+ table, th,td{
+    text-align: center;
+     border: 1px solid black;
+}
+table {
+   
+    width:100%
+}
+button{
+    float:  center;
+}
+
+
+
+
+
+
