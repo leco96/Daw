@@ -21,7 +21,7 @@ function setColor() {
 function informacionBasica(){
     document.getElementById("enviarInfo").style.visibility="visible";
     
-    document.getElementById("enviarInfo").innerHTML="recuerda que tiene que tener mayusculas, numeros y caracteres especiales para mayor seguridad"
+    document.getElementById("enviarInfo").innerHTML="<strong>recuerda que tiene que tener mayusculas, numeros y caracteres especiales para mayor seguridad</strong>"
 }
 function ocultarInfo(){
     document.getElementById("enviarInfo").style.visibility="hidden";
@@ -129,5 +129,19 @@ function calcularEdad(){
     
    alert(years + " años");
     
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
 }
 

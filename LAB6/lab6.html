@@ -5,7 +5,15 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <form>
+    
+    <p>Arrastra el logo</p>
+    <div class="a">
+    <div id="logo" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <img src="img/tienda.jpg" draggable="true" width="200" height="200" ondragstart="drag(event)" id="imagenTienda">
+    
+    <br>
+    <form id="formacontra">
+        <br>
         Contrseña: <br>
         <input type="password" id="pass" oninput="correct()" >
         <br>
@@ -16,6 +24,7 @@
         <button id="enviar">checar</button>
     </form>
     <p id="enviarInfo"></p>
+        </div>
     <br>
    
     
@@ -68,26 +77,27 @@
             
            <div id="preguntas">
                 <ol>
-		<li> ¿?</li>
+		<li>¿Cuáles son las diferencias entre los posibles valores de la propiedad position?</li>
 		  <ul>
-			<li> </li>
+			<li>Static, es el valor que toma un elemento por defecto para posicionar y respetará el flujo normal de la pag. </li>
+            <li>Relative, . Se podría decir que estamos posicionando un elemento tomando como referencia el flujo normal </li>
+            <li>Absolute, no estará dentro del flujo normal de la página y tomará como referencia la ventana del navegador o el elemento posicionado </li>
+            <li>Fixed, oman como referencia la ventana del navegador y no respetan el tener un contenedor padre que esté posicionado.</li>
 		  </ul>
-             <li>¿?</li>
+             <li>¿Cuáles son los valores estándar para la propiedad visibility?</li>
 		  <ul>
-			<li></li>
+			<li>Visible, hidden, collapse inherit</li>
 		  </ul> 
-                <li></li>
+                <li>¿Qué es el zIndex y para qué sirve?</li>
 		  <ul>
-			<li></li>
+			<li>La propiedad CSS z-index indica el z-order de un elemento y sus descendientes. Cuando varios elementos se superponen, z-order determina cuales cubren a otros. Un elemento con mayor z-index generalmente cubre a otro menor.</li>
 		  </ul>
 	           </ol>
                
             </div>
 
-      
-   
-
-    
+    <div class="marca-de-agua">
+<img alt="tienda" src="img/tienda.jpg" /></div>
         
     
      <script src="functions.js"></script>

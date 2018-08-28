@@ -1,6 +1,6 @@
 
 function ejercicioUno(){
-    let numero = prompt("Escribe un numero: ");
+    var numero = prompt("Escribe un numero: ");
         let t = '<table>' ;
         for(let i =1; i<= numero; i++){
             t =  t+ '<tr>';
