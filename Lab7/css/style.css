@@ -1,0 +1,23 @@
+body{
+    background-image: url("../imagenes/concierto.jpg");
+    background-size: cover;
+    color: white;
+}
+.login{
+    margin-top: 100px;
+}
+.login .card{
+    background: rgba(0,0,0,.6);
+}
+.login label{
+    font-size: 16px;
+    color: white;
+}
+
+.login input{
+    font-size: 22px;
+    color:white;
+}
+.login button:hover{
+    padding:0px 40px;
+}
