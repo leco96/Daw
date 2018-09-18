@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="HomePage.css">
+     <link type="text/css" rel="stylesheet" href="position.css">
+</head>
+<body>
+    <!--Bara de search, Mi perfil y guardados-->
+     <nav>
+      <div class="nav-wrapper #607d8b blue-grey ">
+        <a href="#!" class="brand-logo">Logo</a>
+        <a href="#" data-target="mobile-sesion" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="badges.html">Guardados</a></li>
+          <li><a href="badges.html">Mi Perfil</a></li>
+        </ul>
+        <form class="SearchBar">
+          <div class="input-field container">
+            <input id="search" type="search" required>
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
+    <!--Barra que contienen la foto e infomracion del usuario, mail,nombre, video demo y perfil facebook-->
+    <div>
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s2">
+              <img src="imagen/Eduardo.jpg" alt="Eduardo Rosado" class="circle responsive-img"> 
+            </div>
+            <div class="col s10">
+             <p>erosado@itesm.mx</p>
+            <p>Eduardo Rosado</p>
+            <a href="https://www.youtube.com/watch?v=I9cCPQVPv8o">Video demo</a><br>
+            <a href="https://www.facebook.com/">Perfil de Facebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--Nav bar de perfil, que es artistas, lugares, eventos y orhanizadores, que seleeciona el usuario-->
+
+<section class="buttonContainer ">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 offset-m1 ">
+            <a class="waves-effect waves-light btn-large #607d8b blue-grey"><i class="material-icons left">person</i>Artistas</a>
+            <a class="waves-effect waves-light btn-large #607d8b blue-grey"><i class="material-icons left">event</i>Eventos</a>
+            <a class="waves-effect waves-light btn-large #607d8b blue-grey"><i class="material-icons left">store</i>Lugares</a>
+            <a class="waves-effect waves-light btn-large #607d8b blue-grey"><i class="material-icons left">settings_input_component</i>Proveedores</a>
+          </div>
+        </div>
+      </div>
+    </section>  
+    </div>
+    <!-- Seccion que marca lo que ofrece el usuario-->
+
+ <div class="container" >
+    <div class="derecha"> 
+    <!--Header_fijo me permite hacer el scroll en la tabla-->
+    <!--highlight me permite que al pasar el mouse se preseleccione dando un sombreado-->
+     <table class="header_fijo highlight">
+  <tr>
+    <th>Ofrece</th>
+  </tr>
+  <tr>
+    <td>Tocar guitarra</td>
+  </tr>
+  <tr>
+    <td>Dar Clases</td>
+  </tr>
+  <tr>
+    <td>Cantar trova</td>
+  </tr>
+  
+</table>
+</div>
+</div>
+   
+    <div class="container" >
+    <div class="izquierda">
+     <table class="header_fijo highlight" >
+  <tr>
+    <th>Incluir</th>
+  </tr>
+  <tr>
+    <td>Acompañar Cliente</td>
+  </tr>
+  <tr>
+    <td>Tocar Jazz</td>
+  </tr>
+  <tr>
+    <td>Tocar cumbia</td>
+  </tr>
+  <tr>
+    <td>Tocar de primera vista</td>
+  </tr>
+  <tr>
+    <td>Equalizar audio</td>
+  </tr>
+</table>
+</div>
+</div>
+    
+    
+    
+    <script src="functionIncluir_Ofrece.js"></script>
+    
+</body>
+</html>

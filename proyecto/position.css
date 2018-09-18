@@ -1,0 +1,15 @@
+.derecha{
+    float: left;
+}
+
+.izquierda{
+    float: right;
+}
+
+.header_fijo{
+  display: block;
+  overflow: auto;
+  height: 300px;
+  width: 200;
+}
+
