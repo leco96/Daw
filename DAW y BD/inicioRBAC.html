@@ -1,0 +1,52 @@
+<div class="card" id="cardCasino" style="top:90px; left:40px;">
+  <div class="card-body">
+    <h5 class="card-title ">
+      <ul class="nav">
+        <form  action="indexRBAC.php" method="POST">
+        <div class="logoCasino" style="top:0px; left:0px;">
+          <strong>CasinoLife</strong> 
+        </div>
+        <?php if (isset($errorCasino)): ?>
+          <div class="faceInput" style="top:20px; left:380px;">Error: <?= $errorCasino ?></div>
+        <?php endif; ?>
+         <div class="faceInput" style="top:20px; left:700px;">
+          <li class="nav-item" >
+            <label for="inputUsuario">Correo</label>
+            <input type="text" name="inputUsuarioCasino" id="inputUsuarioCasino">
+          </li>
+        </div>
+        <div class="faceInput" style="top:20px; left:950px;">
+          <li class="nav-item" >
+            <label for="inputPassword">Password</label>
+            <input type="password" name="inputPasswordCasino" id="inputPasswordCasino"  >
+          </li>
+        </div>
+        <button  class="btn btn-dark absol"  style="top:5px; left:1240px;">Iniciar Sesion</button>
+        </form>
+      </ul>
+    </h5>
+    
+    <div id="portadaCasino" style="top:50px; left:0px;">
+   .
+    </div>
+
+
+  <div class="absol" style="width: 18rem;  top:400px; left:50px;" >
+    <img class="img-thumbnail" src="amigos.jpg" alt="Card image cap" style="height: 200px;">
+  </div>
+
+   <div class="absol" style="width: 18rem;  top:400px; left:600px;" >
+    <img class="img-thumbnail" src="casino1.jpg" alt="Card image cap" style="height: 200px;">
+  </div>
+
+   <div class="absol" style="width: 18rem;  top:400px; left:1100px;" >
+    <img class="img-thumbnail" src="casino2.jpg" alt="Card image cap" style="height: 200px;">
+  </div>
+
+
+
+  </div>
+</div>
+
+
+</div>

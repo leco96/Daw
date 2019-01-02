@@ -1,0 +1,373 @@
+
+           
+                  
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+  
+
+
+      <script type="text/javascript">
+
+      // Menu-toggle button
+
+      $(document).ready(function() {
+            $(".menu-icon").on("click", function() {
+                  $("nav ul").toggleClass("showing");
+            });
+      });
+
+      // Scrolling Effect
+
+      $(window).on("scroll", function() {
+            if($(window).scrollTop()) {
+                  $('#navInicio').addClass('black');
+            }
+
+            else {
+                  $('#navInicio').removeClass('black');
+            }
+      })
+
+       </script>
+       <script>
+         $(document.body).on('click','#RegitsrarVenta',function(){
+      $.get("registrarVenta.php")
+        .done(function( data ) {
+          $('#cuerpoVentas').html(data);
+          
+
+      });
+     });
+        //submit Cliente
+         $(document.body).on('click','#submit_Cliente',function(){
+          var nombreCliente=document.getElementById('InputNombreCliente');
+          var municipio=document.getElementById('InputMunicipio');
+          var capacidad=document.getElementById('InputCapacidad');
+          var clave=document.getElementById('InputClave');
+          var contrata=document.getElementById('InputContrata');
+      $.get("submitCliente.php?nombreCliente="+nombreCliente.value+"&municipio="+municipio.value+"&capacidad="+capacidad.value+"&contrata="+contrata.value+"&clave="+clave.value)
+        .done(function( data ) {
+          $('#cuerpoVentas').html(data);
+      });
+     });
+       //submit vendedor
+        $(document.body).on('click','#submit_vendedor',function(){
+          var nombreVendedor=document.getElementById('InputNombreVendedor');
+          var domicilio=document.getElementById('InputDomicilio');
+          var telefono=document.getElementById('InputTelefono');
+      $.get("submitVendedor.php?nombreVendedor="+nombreVendedor.value+"&domicilio="+domicilio.value+"&telefono="+telefono.value)
+        .done(function( data ) {
+          $('#cuerpoVentas').html(data);
+      });
+     });
+
+
+$(document.body).on('click','#ReporteVendedor',function(){
+      $.get("reportesVenta.php")
+        .done(function( data ) {
+          $('#cuerpoVentas').html(data);
+          
+      });
+     });
+
+
+     $(document.body).on('click','#RegistrarCliente',function(){
+      
+      $.get("regitrarCliente.php")
+        .done(function( data ) {
+          $('#cuerpoVentas').html(data);
+      });
+     });
+       
+
+         $(document.body).on('click','#submit_venta',function(){
+          var vendedor=document.getElementById('InputVendedor');
+          var cliente=document.getElementById('InputCliente');
+          var fecha=document.getElementById('datepicker');
+          var conusmo=document.getElementById('InputCantidad');
+          var observaciones=document.getElementById('InputObservaciones');
+      $.get("submitVenta.php?vendedor="+vendedor.value+"&cliente="+cliente.value+"&fecha="+fecha.value+"&Cantidadconsumo="+conusmo.value+"&observaciones="+observaciones.value)
+        .done(function( data ) {
+          $('#cuerpoVentas').html(data);
+      });
+     });
+       
+////////////////CALENDAR/////////////////////////
+
+     $('#lab20').click(function() {
+        $.get("indexlab20.php")
+          .done(function( data ) {
+            $('#body').html(data);
+            var calendar = $('#calendar').fullCalendar({
+              editable:true,
+              header:{
+                 left:'prev,next today',
+                 center:'title',
+                 right:'month,agendaWeek,agendaDay'
+              },
+              events: 'load.php',
+              selectable:true,
+              selectHelper:true,
+              select: function(start, end, allDay)
+              {
+            //entrar los detalles del evento
+               var title = prompt("Enter Event Title");
+               //checar si tiene un valor que ejecutar
+               if(title)
+               {
+                var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+                var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+                $.ajax({
+                  url:"insert.php",
+                  type:"POST",
+                  data:{title:title, start:start, end:end},
+                  success:function(){
+                    calendar.fullCalendar('refetchEvents');
+                    alert("Added Successfully");
+                  }
+
+               })
+
+            }
+          },
+          editable:true,
+          eventResize:function(event){
+            var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+            var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+            var title = event.title;
+            var id = event.id;
+             $.ajax({
+              url:"update.php",
+              type:"POST",
+              data:{title:title, start:start, end:end, id:id},
+              success:function(){
+                calendar.fullCalendar('refetchEvents');
+                alert('Event Update');
+              }
+            })
+          },
+
+            eventDrop: function(event){
+              var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+              var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+              var title = event.title;
+              var id = event.id;
+              $.ajax({
+                url:"update.php",
+                type:"POST",
+                data:{title:title, start:start, end:end, id:id},
+                success:function()
+                {
+                 calendar.fullCalendar('refetchEvents');
+                 alert("Event Updated");
+                }
+             });
+            },
+            eventClick:function(event)
+            {
+               if(confirm("Are you sure you want to remove it?")){
+                 var id = event.id;
+                 $.ajax({
+                   url:"delete.php",
+                   type:"POST",
+                   data:{id:id},
+                   success:function()
+                   {
+                    calendar.fullCalendar('refetchEvents');
+                    alert("Event Removed");
+                   }
+                  })
+               }
+            },
+        });
+      });
+    });
+
+
+  
+//////////////////////////////////////////////
+         $(document.body).on('click','.mod',function(event){
+       var tweet = $(this).data("modificar");
+        $.get("TweetsModificar.php?tweet="+tweet)
+          .done(function( data ) {
+            $('#TweetsR').html(data);
+        });
+       });
+
+           $(document.body).on('click','.elim',function(event){
+       var id_tweet = $(this).data("something");
+        $.get("TweetsEliminar.php?id_tweet="+id_tweet)
+          .done(function( data ) {
+            $('#TweetsR').html(data);
+             $.get("numeroTweet.php")
+          .done(function( data ) {
+            console.log("entro al numero");
+            $('#numeroTweetR').html(data);
+        });
+        });
+       });
+
+        $(document.body).on('click','#submit_tweet',function(){
+          var descripcion=document.getElementById('desc_tweet');
+        $.get("Tweets.php?descripcion="+descripcion.value)
+          .done(function( data ) {
+            console.log("entro a resultados Tweets");
+            $('#TweetsR').html(data);
+             $.get("numeroTweet.php")
+          .done(function( data ) {
+            console.log("entro al numero");
+            $('#numeroTweetR').html(data);
+        });
+        });
+       });
+
+
+
+      //ajax
+        $(document.body).on('click','#preguntas',function(){
+         console.log("entro aqui");
+        $.get("contenidoPreguntas.php")
+          .done(function( data ) {
+            $('#contenidoPerfil').html(data);
+        });
+       });
+
+        $(document.body).on('click','#preguntasLba5',function(){
+         console.log("entro aqui");
+        $.get("preguntasLab5.html")
+          .done(function( data ) {
+            $('#body').html(data);
+        });
+       });
+
+       $(document.body).on('click','#Biografia',function(){
+       console.log("entro aqui");
+      $.get("contedioLuis.html")
+        .done(function( data ) {
+          $('#contenidoPerfil').html(data);
+      });
+     });
+
+        $(document.body).on('click','#enviar',function(){
+       console.log("entro aqui");
+      $.get("tienda.html")
+        .done(function( data ) {
+          $('#body').html(data);
+      });
+     });
+       
+
+        $('#lab4').click(function() {
+        $.get("lab4.html")
+          .done(function( data ) {
+            console.log("entro aqui");
+            $('#body').html(data);
+        });
+      });
+
+         $('#lab5').click(function() {
+        $.get("lab5.html")
+          .done(function( data ) {
+            console.log("entro aqui");
+            $('#body').html(data);
+        });
+      });
+
+         $('#lab6').click(function() {
+        $.get("lab6n.html")
+          .done(function( data ) {
+            console.log("entro aqui");
+            $('#body').html(data);
+        });
+      });
+
+         $('#lab9').click(function() {
+        $.get("lab9.php")
+          .done(function( data ) {
+            console.log("entro aqui");
+            $('#body').html(data);
+        });
+      });
+
+
+          $('#lab11').click(function() {
+        $.get("indexFace.php")
+          .done(function( data ) {
+            console.log("entro a indexFace");
+            $('#body').html(data);
+        });
+      });
+
+       $('#lab14').click(function() {
+        $.get("lab14.php")
+          .done(function( data ) {
+            $('#body').html(data);
+
+        });
+      });
+
+
+       $('#lab16').click(function() {
+        $.get("lab16.php")
+          .done(function( data ) {
+            $('#body').html(data);
+
+        });
+      });
+
+       $('#reporte').click(function() {
+        $.get("reportes.php")
+          .done(function( data ) {
+            $('#body').html(data);
+             $( "#datepicker" ).datepicker({
+                dateFormat: 'yy-mm-dd'
+          });
+        });
+      });
+
+
+        $('#home').click(function() {
+        $.get("home.html")
+          .done(function( data ) {
+            console.log("entro aqui");
+            $('#body').html(data);
+        });
+      });
+
+        $('#RBAC').click(function() {
+        $.get("indexRBAC.php")
+          .done(function( data ) {
+            $('#body').html(data);
+
+        });
+      });
+
+        $('#lab23').click(function() {
+        $.get("lab23.html")
+          .done(function( data ) {
+            $('#body').html(data);
+
+        });
+      });
+
+      
+       
+      </script>
+
+</body>
+</html>

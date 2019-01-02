@@ -1,0 +1,92 @@
+-----------ventas por vendedor-------------------------
+
+SELECT SUM(`cantidad`) AS 'VentaTotal', `nombrevendedor`
+FROM `vendedor_cliente` VC, `vendedor` V
+WHERE
+VC.id_Vendedor = V.id_Vendedor
+AND `nombreVendedor` = 'E.Ochoa' 
+
+Resultado
+VentaTotal | Vendedor
+
+-------------Cantidad de vendedores registrados----------------------
+
+SELECT COUNT(`id_Vendedor`)
+FROM `vendedor`;
+
+------------Promedio Ventas----------------------
+
+SELECT AVG(`cantidad`) as "Promedio" FROM `vendedor_cliente`
+
+----------Mayor Venta ------------------------------
+
+SELECT  `nombreVendedor`,`cantidad`,`nombreCliente` FROM `vendedor_cliente` vc, `vendedor` V, `cliente`C WHERE VC.id_Vendedor=V.id_Vendedor AND VC.`id_Cliente`=C.`id_Cliente` ORDER BY `cantidad` DESC LIMIT 1;
+
+
+--------Menor venta-------------------------------------
+SELECT  `nombreVendedor`,`cantidad`,`nombreCliente` 
+                FROM `vendedor_cliente` vc, `vendedor` V, `cliente`C
+                WHERE VC.id_Vendedor=V.id_Vendedor 
+                AND VC.id_Cliente =C.id_Cliente
+                ORDER BY `cantidad` ASC LIMIT 1
+
+
+-----------------------Municipios con menor venta--------------------
+SELECT COUNT(CM.id_Cliente) AS TotalClientes FROM `cliente_municipio` CM, `cliente` C, `municpio` M  WHERE CM.id_Municipio = M.id_Municipio AND CM.id_Cliente = C.id_Cliente AND `nombreMunicipio`='APASEO EL GRANDE'
+
+
+
+
+--------------Tanques por municipio--------------------
+
+SELECT COUNT(CT.id_Tanque) AS "numeroTanques"
+                FROM `municpio` M, `tanque` T, `cliente` C, `cliente_tanque` CT, `cliente_municipio` CM
+                WHERE M.id_Municipio = CM.id_Municipio AND C.id_Cliente = CM.id_Cliente AND C.id_Cliente = CT.id_Cliente
+                AND CT.id_Tanque = T.id_Tanque AND `nombreMunicipio` = "Apaseo el Grande";
+
+----------------Municipio con Mayor Venta-----------------------
+
+
+SELECT  SUM(`cantidad`) AS CantidadMunicipio, `nombreMunicipio`  
+FROM `municpio` M,`cliente_municipio` CM,  `cliente` C, `vendedor_cliente` VC
+WHERE M.id_Municipio = CM.id_Municipio AND CM.id_Cliente = C.id_Cliente AND C.id_Cliente = VC.id_Cliente
+GROUP by `nombreMunicipio` 
+ORDER BY `cantidad` DESC LIMIT 2;
+
+-------Consumo por clientes------------
+SELECT `cantidad`
+FROM `cliente` C ,  `vendedor_cliente` VC 
+WHERE C.id_Cliente = VC.id_Cliente
+AND `nombreCliente`= ''
+
+-------Clientes que aumentaron su consumo-------------------
+
+
+SELECT `nombreCliente`,  SUM(`cantidad`) AS "Total de consumo"
+FROM `cliente` C ,  `vendedor_cliente` VC 
+WHERE C.id_Cliente = VC.id_Cliente
+AND VC.fecha BETWEEN  '2018-01-01' AND '2018-12-31'
+AND  `nombreCliente` = 'HERNANDEZ MONTES JOSE MARIA'
+ AND `cantidad`<
+(SELECT SUM(`cantidad`) AS "Total de consumo"
+FROM `cliente` C ,  `vendedor_cliente` VC 
+WHERE C.id_Cliente = VC.id_Cliente
+AND VC.fecha BETWEEN  '2017-01-01' AND '2017-12-31'
+AND  `nombreCliente` = 'HERNANDEZ MONTES JOSE MARIA')
+
+SELECT `nombreCliente`, SUM(`cantidad`) AS "Total de consumo" FROM `cliente` C , `vendedor_cliente` VC WHERE C.id_Cliente = VC.id_Cliente AND VC.fecha BETWEEN '2018-01-01' AND '2018-12-31' AND `nombreCliente` = 'AGACEL AGREGADOS Y ASFALTOS SA DE CV' AND `cantidad`< (SELECT SUM(`cantidad`) AS "Total de consumo" FROM `cliente` C , `vendedor_cliente` VC WHERE C.id_Cliente = VC.id_Cliente AND VC.fecha BETWEEN '2017-01-01' AND '2017-12-31' AND `nombreCliente` = 'AGACEL AGREGADOS Y ASFALTOS SA DE CV')
+
+
+
+
+SELECT `nombreCliente`,  SUM(`cantidad`) AS "Total de consumo"
+FROM `cliente` C ,  `vendedor_cliente` VC 
+WHERE C.id_Cliente = VC.id_Cliente
+AND VC.fecha BETWEEN  '2018-01-01' AND '2018-12-31'
+AND  `nombreCliente` = 'HERNANDEZ MONTES JOSE MARIA'
+ AND `cantidad`<
+(SELECT SUM(`cantidad`) AS "Total de consumo"
+FROM `cliente` C ,  `vendedor_cliente` VC 
+WHERE C.id_Cliente = VC.id_Cliente
+AND VC.fecha BETWEEN  '2017-01-01' AND '2017-12-31'
+AND  `nombreCliente` = 'HERNANDEZ MONTES JOSE MARIA')

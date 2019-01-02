@@ -1,0 +1,121 @@
+
+<div class="card" id="cardface" style="top:90px; left:40px;">
+  <div class="card-body">
+   <h5 class="card-title ">
+      <ul class="nav">
+        <div class="logoface" style="top:0px; left:0px;">
+          Facebook
+        </div>
+        <div class="faceInput" style="top:20px; left:200px;">
+          <li class="nav-item" >
+            <input type="text" placeholder="Search" name="" size="40">
+          </li>
+        </div>
+        <div class="faceInput" style="top:20px; left:1200px;">
+          <li class="nav-item" >
+            <?php if (isset($_SESSION["usuario"])): ?>
+              <?=$_SESSION["usuario"]?>  
+            <?php endif; ?>
+            <?php if (isset($_SESSION["usuarioReg"])): ?>
+              <?=$_SESSION["usuarioReg"]?>  
+            <?php endif; ?>
+          </li>
+        </div>
+        <div class="faceInput" style="top:20px; left:1330px;">
+          <li class="nav-item" >
+              <?php if (isset($_SESSION["usuario"]) || isset($_SESSION["usuarioReg"])): ?>
+                 <a href="controllerSalir.php" style="color:#fff;">Salir</a>
+             <?php endif; ?>
+          </li>
+        </div>
+      </ul>
+    </h5> 
+    
+  <div id="portada">
+  <div id="fotoPeril">
+    <?php if (isset($_SESSION["usuario"])): ?>
+      <?php if (isset($_SESSION["imagen"])): ?>
+          <img id="imgPhoto"  src="<?=$_SESSION["imagen"]?>" alt="foto perfil" width="150px" height="150px">
+      <?php else: ?>
+        <img id="imgPhoto" src="leco.jpg" alt="Enrique Canales" height="150px" width="150px">
+      <?php endif ?>
+    <?php endif; ?>
+    <?php if (isset($_SESSION["usuarioReg"])): ?>
+       <?php if (isset($_SESSION["imagen"])): ?>
+         <img id="imgPhoto"  src="<?=$_SESSION["imagen"]?>" alt="foto perfil" width="150px" height="150px">
+      <?php else: ?>
+         <img id="imgPhoto" src="usarioNoReg.jpg" alt="Enrique Canales" height="150px" width="150px">
+      <?php endif ?>
+    <?php endif; ?>
+
+
+    
+
+  </div>
+</div>
+<nav id="navPerfil" class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <?php if (isset($_SESSION["usuario"])): ?>
+            <?=$_SESSION["usuario"]?> 
+          <?php endif; ?>
+          <?php if (isset($_SESSION["usuarioReg"])): ?>
+            <?=$_SESSION["usuarioReg"]?> 
+          <?php endif; ?>
+        
+      </li>
+    </ul>
+  </div>
+</nav>
+ 
+ <div id="contenidoPerfil">
+  <div class="card" id="cardPerfil">
+     <!-- Button cambiar foto -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_upload">Cambiar foto</button>
+    <div class="card-body">
+
+      <?php if (isset($_SESSION["usuario"])): ?>
+        <h5 class="card-title">Escuela</h5>
+        <p class="card-text">Tec de Monterrey.</p>
+        <p class="card-text">Sistemas Computacionales.</p>
+      <?php endif; ?>
+      <?php if (isset($_SESSION["usuarioReg"])): ?>
+        <h5 class="card-title">Interes 3</h5>
+        <p class="card-text">Interes 2.</p>
+        <p class="card-text">Interes 3</p>
+      <?php endif; ?>
+
+      
+
+    </div> 
+  </div>
+
+
+    <div class="card" id="cardPerfilCompletoFacebook">
+    <div class="card-body">
+      <h5 class="card-title">Mi vida</h5>
+       <?php if (isset($_SESSION["usuario"])): ?>
+        <p class="card-text">Naci el 20 de diciembre de 1996 en la ciudad de Celaya,gto. Me pusieron el nombre de Luis Enrique, debido a que mis padres juntaron sus dos nombres, el nombre de mi padre es Luis y el de mi madre Enriqueta.</p>
+      <?php endif; ?>
+      <?php if (isset($_SESSION["usuarioReg"])): ?>
+        <p class="card-text">Escribe algo sobre ti...</p>
+      <?php endif; ?>
+
+
+      
+
+
+
+    </div>
+  </div>
+
+
+ </div>
+
+
+  </div>
+</div>
+
+
+</div>

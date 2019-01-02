@@ -1,105 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>lab5 PASSWORD</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-    
-    <p>Arrastra el logo</p>
-    <div class="a">
-    <div id="logo" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <img src="img/tienda.jpg" draggable="true" width="200" height="200" ondragstart="drag(event)" id="imagenTienda">
-    
-    <br>
-    <form id="formacontra">
-        <br>
-        Contrseña: <br>
-        <input type="password" id="pass" oninput="correct()" >
-        <br>
-        <p id="demo"></p>
-        Confirmar contraseña: <br>
-        <input type="password" id="checkpass">
-         <p id="comparador"></p>
-        <button id="enviar">checar</button>
-    </form>
-    <p id="enviarInfo"></p>
-        </div>
-    <br>
-   
-    
-        
-    <div class="a">
-        <p>Tiendita de la esquina</p>
-        <img src="img/coca.jpg" , alt="cocal-cola" width="200" height="200" id="cocaImg">
-    
-        <img src="img/ganisto.jpg" alt="ganisto" width="200" height="200" id="gansitoImg" >
-    
-        <img src="img/chips.jpg" alt="chips" width="200" height="200" id="chipsImg" >
-    </div>
-         <div class="a">
-        <form>
-            <table id="tienditaEsquina">
-                <tr>
-                    <td> 
-                        <input type= "number" min="0" max="20" id="coca" oninput="calcular()">
-                    </td>
-                    <td>
-                        <p id="calcularCoca"></p>
-                    </td>
-                    <td> 
-                        <input type= "number" min="0" max="20" id="gansito" oninput="calcular()"> 
-                    </td>
-                    <td>
-                         <p id="calcularGansito"></p>
-                    </td>
-                    <td>
-                        <input type= "number" min="0" max="20" id="chips" oninput="calcular()"> 
-                    </td>
-                    <td>
-                         <p id="calcularChips"></p>
-                    </td>
-                    </tr>
-             </table>
-             <p id="total"></p>
-        </form>
-             <button onclick="calcularTotal()">Comprar</button>
-             </div>
-    
-        <div class="a">
-            <p>Seleccion de archivo </p>
-            <form>
-                <input type="date" min="1990-01-01" id="fecha">
-            </form>
-                <button id="enviarFecha">Enviar</button>
-        </div>
-        
-            
-           <div id="preguntas">
-                <ol>
-		<li>¿Cuáles son las diferencias entre los posibles valores de la propiedad position?</li>
-		  <ul>
-			<li>Static, es el valor que toma un elemento por defecto para posicionar y respetará el flujo normal de la pag. </li>
-            <li>Relative, . Se podría decir que estamos posicionando un elemento tomando como referencia el flujo normal </li>
-            <li>Absolute, no estará dentro del flujo normal de la página y tomará como referencia la ventana del navegador o el elemento posicionado </li>
-            <li>Fixed, oman como referencia la ventana del navegador y no respetan el tener un contenedor padre que esté posicionado.</li>
-		  </ul>
-             <li>¿Cuáles son los valores estándar para la propiedad visibility?</li>
-		  <ul>
-			<li>Visible, hidden, collapse inherit</li>
-		  </ul> 
-                <li>¿Qué es el zIndex y para qué sirve?</li>
-		  <ul>
-			<li>La propiedad CSS z-index indica el z-order de un elemento y sus descendientes. Cuando varios elementos se superponen, z-order determina cuales cubren a otros. Un elemento con mayor z-index generalmente cubre a otro menor.</li>
-		  </ul>
-	           </ol>
-               
-            </div>
+<h1 id="titulo" onmouseover="style.color='red'" onmouseout="style.color='black'">
+Mario and Luigi</h1>
 
-    <div class="marca-de-agua">
-<img alt="tienda" src="img/tienda.jpg" /></div>
-        
-    
-     <script src="functions.js"></script>
-</body>
-</html>
+<svg width="600" height="600" id="entorno">
+		<g id="fondo"><image href="mario1.jpg" width="400" height="400" x="200" y="100"></g>
+	<g class="padre" id="0"><image href="p1s.png" class="movil"></g>
+	<g class="padre" id="1"><image href="P2s.png" class="movil"></g>
+	<g class="padre" id="2"><image href="p3s.png" class="movil"></g>
+	<g class="padre" id="3"><image href="p4s.png" class="movil"></g>
+	<g class="padre" id="4"><image href="p5s.png" class="movil"></g>
+	<g class="padre" id="5"><image href="p6s.png" class="movil"></g>
+	<g class="padre" id="6"><image href="p7s.png" class="movil"></g>
+	<g class="padre" id="7"><image href="p8s.png" class="movil"></g>
+	<g class="padre" id="8"><image href="p9s.png" class="movil"></g>
+</svg>
+<audio id="win" src="https://raw.githubusercontent.com/NestorPlasencia/PikaPuzzle/master/media/win.mp3"></audio>
+<script type="text/javascript" src="lab6.js"></script>

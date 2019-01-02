@@ -1,0 +1,72 @@
+<div class="card" id="cardface" style="top:90px; left:40px;">
+  <div class="card-body">
+    <h5 class="card-title ">
+      <ul class="nav">
+        <form  action="indexFace.php" method="POST">
+        <div class="logoface" style="top:0px; left:0px;">
+          Facebook
+        </div>
+        <?php if (isset($error)): ?>
+          <div class="faceInput" style="top:20px; left:380px;">Error: <?= $error ?></div>
+        <?php endif; ?>
+        <div class="faceInput" style="top:20px; left:770px;">
+          <li class="nav-item" >
+            <label for="inputUsuario">Correo</label>
+            <input type="text" name="inputUsuario" id="inputUsuario">
+          </li>
+        </div>
+        <div class="faceInput" style="top:20px; left:1010px;">
+          <li class="nav-item" >
+            <label for="inputPassword">Password</label>
+            <input type="password" name="inputPassword" id="inputPassword"  >
+          </li>
+        </div>
+        <button id="botn_face" style="top:20px; left:1340px;">
+          <h6>Iniciar</h6>
+        </button>
+        </form>
+      </ul>
+    </h5>
+    
+    <div class="card-text" id="bodyface" style="top:100px; left:70px;">
+      <div style="width: 36rem;">
+      <div class="card-body">
+        <h5 class="card-title">Facebook te ayuda a comunicarte y compartir con las personas que forman parte de tu vida.</h5>
+         <img src="reds.png">
+      </div>
+    </div>     
+    </div>
+
+  <div class="card-text" id="bodyface" style="top:100px; left:900px;">
+  <div class="card-body">
+    <form action="indexFace.php" method="POST">
+      <h3 class="card-title"><strong>Abre una cuenta</strong></h3>
+      <h6 class="card-subtitle mb-2 text-muted">Es gratis y lo será siempre.</h6>
+      <p class="card-text">
+         <?php if (isset($errorP)): ?>
+          <div class="ERROR" style="top:380px; left:20px;">Error: <?= $errorP ?></div>
+        <?php endif; ?>
+        <h6>Name</h6>
+        <input type="text" name="usuarioReg" id="usuarioReg" >
+        <h6>Email</h6>
+        <input type="text" name="emailReg" id="emailReg">
+        <h6>Password</h6>
+        <input type="password"  name="passReg" id="passReg">
+        <h6>Confirm Paswword</h6>
+        <input type="password" id="checkpass" name="checkpass" >
+        <ul class="list-group list-group-flush">
+        <p id="privacidadface">Al crear una cuenta, aceptas las Condiciones de Uso y el Aviso de Privacidad.</p>
+      </ul>
+      </p>
+       <button>
+          <h6>Registrarse</h6>
+        </button>
+    </form>
+  </div>
+  </div>
+
+  </div>
+</div>
+
+
+</div>

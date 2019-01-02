@@ -1,0 +1,33 @@
+
+<div class="card" id="cardface" style="top:90px; left:40px;">
+  <div class="card-body">
+  <h5 class="card-title ">
+    <ul class="nav">
+      <div class="logoCasino" style="top:0px; left:0px;">
+        <strong>CasinoLife</strong> 
+      </div>
+      <div class="faceInput" style="top:20px; left:1200px;">
+        <li class="nav-item" >
+         <?php if (isset($_SESSION["usuarioC"])): ?>
+              <?=$_SESSION["usuarioC"]?>  
+            <?php endif; ?>
+        </li>
+      </div>
+      <div class="faceInput" style="top:20px; left:1330px;">
+        <li class="nav-item" >
+          <a href="controllerSalirRBAC.php" style="color:#fff;">Salir</a>
+        </li>
+      </div>
+    </ul>      
+  </h5> 
+
+
+ 
+
+
+
+  </div>
+</div>
+
+
+</div>
